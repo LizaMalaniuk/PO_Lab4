@@ -48,8 +48,10 @@ bool sendMessage(SOCKET sock, const vector<char>& data) {
     return send(sock, data.data(), data.size(), 0) == data.size();
 }
 
-vector<vector<int>> generateMatrix(int size, mt19937& gen) {
+vector<vector<int>> generateMatrix(int size) {
     vector<vector<int>> mat(size, vector<int>(size));
+
+    mt19937 gen(static_cast<unsigned int>(time(0)) + GetCurrentProcessId());
     uniform_int_distribution<int> distrib(0, 9);
 
     for (auto& row : mat)
@@ -58,7 +60,6 @@ vector<vector<int>> generateMatrix(int size, mt19937& gen) {
 
     return mat;
 }
-
 
 void sendConfig(SOCKET sock, uint32_t size, uint32_t threads, int32_t k) {
     vector<char> msg(16);
@@ -122,11 +123,8 @@ int main() {
     uint32_t threads = 2;
     int32_t k = 3;
 
-    mt19937 gen(static_cast<unsigned int>(time(0)) + GetCurrentProcessId());
-
-    auto A = generateMatrix(size, gen);
-    auto B = generateMatrix(size, gen);
-
+    auto A = generateMatrix(size);
+    auto B = generateMatrix(size);
 
     cout << "[CLIENT] Matrix A:\n";
     printMatrix(A);

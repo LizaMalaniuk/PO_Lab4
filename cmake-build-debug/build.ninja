@@ -65,7 +65,7 @@ build CMakeFiles/server.dir/server.cpp.obj: CXX_COMPILER__server_unscanned_Debug
 
 build server.exe: CXX_EXECUTABLE_LINKER__server_Debug CMakeFiles/server.dir/server.cpp.obj
   FLAGS = -g
-  LINK_LIBRARIES = -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lWs2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\server.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -98,13 +98,46 @@ build CMakeFiles/client.dir/client.cpp.obj: CXX_COMPILER__client_unscanned_Debug
 
 build client.exe: CXX_EXECUTABLE_LINKER__client_Debug CMakeFiles/client.dir/client.cpp.obj
   FLAGS = -g
-  LINK_LIBRARIES = -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lWs2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\client.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = client.exe
   TARGET_IMPLIB = libclient.dll.a
   TARGET_PDB = client.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target client2
+
+
+#############################################
+# Order-only phony target for client2
+
+build cmake_object_order_depends_target_client2: phony || .
+
+build CMakeFiles/client2.dir/client2.cpp.obj: CXX_COMPILER__client2_unscanned_Debug C$:/Users/User/CLionProjects/PO_lab4/client2.cpp || cmake_object_order_depends_target_client2
+  DEP_FILE = CMakeFiles\client2.dir\client2.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\client2.dir
+  OBJECT_FILE_DIR = CMakeFiles\client2.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target client2
+
+
+#############################################
+# Link the executable client2.exe
+
+build client2.exe: CXX_EXECUTABLE_LINKER__client2_Debug CMakeFiles/client2.dir/client2.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lWs2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\client2.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = client2.exe
+  TARGET_IMPLIB = libclient2.dll.a
+  TARGET_PDB = client2.exe.dbg
 
 
 #############################################
@@ -134,6 +167,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build client: phony client.exe
 
+build client2: phony client2.exe
+
 build server: phony server.exe
 
 # =============================================================================
@@ -144,7 +179,7 @@ build server: phony server.exe
 #############################################
 # Folder: C:/Users/User/CLionProjects/PO_lab4/cmake-build-debug
 
-build all: phony server.exe client.exe
+build all: phony server.exe client.exe client2.exe
 
 # =============================================================================
 # Built-in targets
